@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Building image') {
       steps {
-        sh 'docker build -t $imagename:version1 .'
+        dockerImage = ( "sh 'docker build -t $imagename:version1 .' ")
       }
     }
     stage('Deploy Image') {
