@@ -14,7 +14,7 @@ pipeline {
     stage('Building image') {
       steps {
         script{
-          dockerImage = "( sh 'docker build -t $imagename:version2 .')"
+          dockerImage = docker.build("$imagename:version3")
         }
       }
     }
