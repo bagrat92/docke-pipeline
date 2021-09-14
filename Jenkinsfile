@@ -13,7 +13,9 @@ pipeline {
     }
     stage('Building image') {
       steps {
-        dockerImage = ( "sh 'docker build -t $imagename:version1 .' ")
+        script{
+          dockerImage = "( sh 'docker build -t $imagename:version2 .')"
+        }
       }
     }
     stage('Deploy Image') {
