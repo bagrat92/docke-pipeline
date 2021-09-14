@@ -8,14 +8,12 @@ pipeline {
   stages {
     stage('Cloning Git Repo') {
       steps {
-        git([url: 'git@github.com:bagrat92/docker-pipeline.git', branch: 'master', credentialId: 'github_ssh_key'])
+        git([url: 'git@github.com:bagrat92/docke-pipeline.git', branch: 'main', credentialsId: 'github_ssh_key'])
       }
     }
     stage('Building image') {
       steps {
-        script {
-          dockerImage = docker.build imagename
-        }
+        sh 'docker build -t $imagename:version1 .'
       }
     }
     stage('Deploy Image') {
